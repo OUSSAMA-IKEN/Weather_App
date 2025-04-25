@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+/* Custom Fonts */
+
+@font-face {
+  font-family: arabicFont;
+  src: url("../public/Fonts/Alexandria-Regular.ttf");
+  weight: 500;
+}
+@font-face {
+  font-family: arabicFont;
+  src: url("../public/Fonts/Alexandria-Medium.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: arabicFont;
+  src: url("../public/Fonts/Alexandria-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: arabicFont;
+  src: url("../public/Fonts/Alexandria-ExtraBold.ttf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: arabicFont;
+  src: url("../public/Fonts/Alexandria-Black.ttf");
+  font-weight: 900;
+}
+
+/* .cardG {
+  /* background: url("./images/cloud.jpg") no-repeat center center !important; */
+/* background-size: cover !important;
+  border-radius: 15px !important;
+  width: 530px !important;
+  height: 340px !important;
+} */
+/* .card {
+  width: 530 !important;
+  height: 335px !important;
+  padding: 0.1rem 0.8rem !important;
+  border-radius: 15px !important;
+  backdrop-filter: blur(4px) !important;
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.532) !important;
+} */
