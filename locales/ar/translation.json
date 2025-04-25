@@ -1,0 +1,21 @@
+{
+  "hello": "مرحبا",
+  "city": "المدينة",
+  "temp": "الحرارة",
+  "max": " القصوى",
+  "min": " الدنيا",
+  "weatherDescription": "وصف الطقس",
+  "icon": "الأيقونة",
+  "clear sky": "مبهجن",
+  "few clouds": "قليل من الغيوم",
+  "scattered clouds": "متشتتة",
+  "broken clouds": "متعسرة",
+  "overcast clouds": "مغطى",
+  "Casablanca": "الدار البيضاء",
+  "Rabat": "الرباط",
+  "Marrakech": "المراكش",
+  "Fes": "الفاس",
+  "Tangier": "التغرير",
+  "Agadir": "الأغواط",
+  "Azilal": "ازيلال"
+}
