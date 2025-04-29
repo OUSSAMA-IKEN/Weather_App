@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Weather_App/static/css/main.e0ad1b51.css",
-    "main.js": "/Weather_App/static/js/main.e14c3e42.js",
+    "main.js": "/Weather_App/static/js/main.1b798f44.js",
     "static/js/453.0ccb7fb4.chunk.js": "/Weather_App/static/js/453.0ccb7fb4.chunk.js",
     "static/media/Alexandria-ExtraBold.ttf": "/Weather_App/static/media/Alexandria-ExtraBold.ac52cb7f1b6bff5c4692.ttf",
     "static/media/Alexandria-Bold.ttf": "/Weather_App/static/media/Alexandria-Bold.0cf36a1f1e325bcf6dcf.ttf",
@@ -10,11 +10,11 @@
     "static/media/Alexandria-Regular.ttf": "/Weather_App/static/media/Alexandria-Regular.4535b8eea67a5b9234dc.ttf",
     "index.html": "/Weather_App/index.html",
     "main.e0ad1b51.css.map": "/Weather_App/static/css/main.e0ad1b51.css.map",
-    "main.e14c3e42.js.map": "/Weather_App/static/js/main.e14c3e42.js.map",
+    "main.1b798f44.js.map": "/Weather_App/static/js/main.1b798f44.js.map",
     "453.0ccb7fb4.chunk.js.map": "/Weather_App/static/js/453.0ccb7fb4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e0ad1b51.css",
-    "static/js/main.e14c3e42.js"
+    "static/js/main.1b798f44.js"
   ]
 }
