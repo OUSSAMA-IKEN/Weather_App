@@ -14,6 +14,7 @@ const resources = {
     translation: {
       min: "الدنيا",
       max: "القصوى",
+      Azilal: "ازيلال",
       weatherDescription: "وصف الطقس",
       icon: "الأيقونة",
       "clear sky": "سماء صافية",

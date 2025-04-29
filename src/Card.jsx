@@ -4,10 +4,13 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
+import CircularProgress from "@mui/material/CircularProgress";
 import "./App.css";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { fetchWeather } from "./Slices/weatherAppSlice";
+
+import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import "moment/min/locales";
 
@@ -21,14 +24,16 @@ import "moment/min/locales";
 
 export default function BasicCard() {
   const { t, i18n } = useTranslation();
+
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.weatherApp.loading);
+  const error = useSelector((state) => state.weatherApp.error);
+  const weather = useSelector((state) => {
+    return state.weatherApp.weatherState;
+  });
+
   //states for weather data
   const [language, setLanguage] = useState("en");
-  const [temp, setTemp] = useState(null);
-  const [tempMax, setTempMax] = useState(null);
-  const [tempMin, setTempMin] = useState(null);
-  const [city, setCity] = useState(null);
-  const [weatherDescription, setweatherDescription] = useState(null);
-  const [icon, setIcon] = useState(null);
   const [timeAndDate, setTimeAndDate] = useState(null);
 
   // update the time and date every second
@@ -43,25 +48,11 @@ export default function BasicCard() {
 
   //fetching weather data
   useEffect(() => {
-    axios
-      .get(
-        "https://api.openweathermap.org/data/2.5/weather?lat=32.00426200&lon=-6.57833870&appid=036acb124944680e8aedda84f4dad91a"
-      )
-      .then((response) => {
-        let temp = Math.round(response.data.main.temp - 273.15);
-        setTemp(temp);
-        setCity(response.data.name);
-        setTempMax(Math.round(response.data.main.temp_max - 273.15));
-        setTempMin(Math.round(response.data.main.temp_min - 273.15));
-        setweatherDescription(response.data.weather[0].description);
-        setIcon(response.data.weather[0].icon);
-      })
-      .catch((error) => {
-        console.error("Error fetching weather data:", error);
-      });
+    dispatch(fetchWeather());
   }, []);
   return (
-    <div style={{}}>
+    <>
+       <div>{error}</div>
       <Card
         className="card"
         sx={{
@@ -86,7 +77,7 @@ export default function BasicCard() {
               component="div"
               sx={{ textAlign: "start", color: "white", fontSize: "40px" }}
             >
-              {t(city)}
+              {t(weather.name)}
             </Typography>
             <Typography
               variant="h7"
@@ -120,7 +111,7 @@ export default function BasicCard() {
                   alt="weather icon"
                 /> */}
                 <img
-                  src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+                  src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
                   alt="weather icon"
                   style={{
                     width: "170px",
@@ -145,7 +136,7 @@ export default function BasicCard() {
                   }}
                 >
                   <img
-                    src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+                    src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
                     alt="weather icon"
                     style={{ width: "50px", height: "50px" }}
                   />
@@ -155,7 +146,11 @@ export default function BasicCard() {
                     width={"100%"}
                     sx={{ textAlign: "right", fontSize: "69px" }}
                   >
-                    <span>{temp}°C</span>
+                    {loading ? (
+                      <CircularProgress sx={{ color: "white" }} />
+                    ) : (
+                      <span>{t(weather.temp)}°C</span>
+                    )}
                   </Typography>
                 </div>
                 <Typography
@@ -164,7 +159,7 @@ export default function BasicCard() {
                   width={"97%"}
                   sx={{ textAlign: "right" }}
                 >
-                  <span>{t(weatherDescription)}</span>
+                  <span>{t(weather.weatherDescription)}</span>
                 </Typography>
                 <Typography
                   variant="h7"
@@ -178,11 +173,11 @@ export default function BasicCard() {
                   }}
                 >
                   <span>
-                    {t("max")} {tempMax}
+                    {t("max")} {weather.tempMax}
                   </span>
                   <span>|</span>
                   <span>
-                    {t("min")} {tempMin}
+                    {t("min")} {weather.tempMin}
                   </span>
                 </Typography>
               </div>
@@ -200,6 +195,6 @@ export default function BasicCard() {
           {language === "en" ? "Arabic" : "English"}
         </Button>
       </CardActions>
-    </div>
+    </>
   );
 }
