@@ -61,34 +61,7 @@ export default function BasicCard() {
       });
   }, []);
   return (
-    <div
-      style={{
-        background: `url(${
-          weatherDescription === "clear sky"
-            ? "/images/clear.jpg"
-            : weatherDescription === "few clouds"
-            ? "/images/cloud.jpg"
-            : weatherDescription === "scattered clouds"
-            ? "/images/cloud.jpg"
-            : weatherDescription === "broken clouds" ||
-              weatherDescription === "overcast clouds"
-            ? "/images/cloud.jpg"
-            : weatherDescription === "mist"
-            ? "/images/mist.jpg"
-            : weatherDescription === "rain"
-            ? "/images/rain.jpg"
-            : weatherDescription === "thunderstorm"
-            ? "/images/thunderstorm.jpg"
-            : weatherDescription === "snow"
-            ? "/images/snow.jpg"
-            : "/images/cloud.jpg"
-        }) no-repeat center center`,
-        backgroundSize: "cover",
-        borderRadius: "15px",
-        width: "550px",
-        height: "320px"
-      }}
-    >
+    <div style={{}}>
       <Card
         className="card"
         sx={{
@@ -147,26 +120,7 @@ export default function BasicCard() {
                   alt="weather icon"
                 /> */}
                 <img
-                  src={
-                    weatherDescription === "clear sky"
-                      ? "./images/clear sky.png"
-                      : weatherDescription === "few clouds"
-                      ? "./images/few cloud.png"
-                      : weatherDescription === "scattered clouds"
-                      ? "./images/scattered cloud.png"
-                      : weatherDescription === "broken clouds" ||
-                        weatherDescription === "overcast clouds"
-                      ? "./images/broken cloud.png"
-                      : weatherDescription === "mist"
-                      ? "./images/mist.png"
-                      : weatherDescription === "rain"
-                      ? "./images/rain.png"
-                      : weatherDescription === "thunderstorm"
-                      ? "./images/thunderstorm.png"
-                      : weatherDescription === "snow"
-                      ? "./images/snow.png"
-                      : "./images/few cloud.png"
-                  }
+                  src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
                   alt="weather icon"
                   style={{
                     width: "170px",
